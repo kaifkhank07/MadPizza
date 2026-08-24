@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+/* DESIGN TOKENS */
+:root {
+  /* Brand Colors */
+  --clr-primary: #C92E05;
+  /* Mad Pizza red-orange   */
+  --clr-primary-light: #E85A2A;
+  --clr-primary-dark: #9E2404;
+
+  --clr-secondary: #F5A623;
+  /* warm golden yellow     */
+  --clr-secondary-light: #FFC55C;
+  --clr-secondary-dark: #C4811A;
+
+  --clr-accent: #1A1A2E;
+  /* deep navy              */
+  --clr-accent-light: #2D2D4E;
+
+  /* Neutrals */
+  --clr-white: #FFFFFF;
+  --clr-off-white: #FAF8F5;
+  --clr-light: #F2EDE8;
+  --clr-light-gray: #A1A1A1;
+  --clr-muted: #9E9E9E;
+  --clr-dark: #1C1C1C;
+  --clr-black: #0A0A0A;
+
+  /* Semantic */
+  --clr-success: #28A745;
+  --clr-warning: #FFC107;
+  --clr-error: #DC3545;
+  --clr-info: #17A2B8;
+
+  /* Backgrounds */
+  --background: var(--clr-off-white);
+  --foreground: var(--clr-dark);
+
+  /* Fonts */
+  --font-kanit: "Kanit", sans-serif;
+  --font-geist: "Geist", sans-serif;
+
+  color-scheme: light;
+}
+
+/* TAILWIND THEME EXTENSIONS */
+@theme inline {
+  /* Custom Breakpoints */
+  /* --breakpoint-2xl: 1280px;
+  --breakpoint-3xl: 1440px;
+  --breakpoint-4xl: 1600px; */
+
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Brand */
+  --color-primary: var(--clr-primary);
+  --color-primary-light: var(--clr-primary-light);
+  --color-primary-dark: var(--clr-primary-dark);
+  --color-secondary: var(--clr-secondary);
+  --color-secondary-light: var(--clr-secondary-light);
+  --color-secondary-dark: var(--clr-secondary-dark);
+  --color-accent: var(--clr-accent);
+  --color-accent-light: var(--clr-accent-light);
+
+  /* Neutrals */
+  --color-off-white: var(--clr-off-white);
+  --color-light: var(--clr-light);
+  --color-muted: var(--clr-muted);
+  --color-dark: var(--clr-dark);
+
+  /* Semantic */
+  --color-success: var(--clr-success);
+  --color-warning: var(--clr-warning);
+  --color-error: var(--clr-error);
+  --color-info: var(--clr-info);
+
+  /* Fonts */
+  --font-sans: var(--font-kanit);
+  /* Kanit is the default */
+  --font-geist: var(--font-geist);
+}
+
+/* BASE STYLES */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-kanit);
+}
+
+/*  FONT UTILITY CLASSES */
+.font-kanit {
+  font-family: var(--font-kanit);
+}
+
+.font-geist {
+  font-family: var(--font-geist);
+}
+
+.font-kaushan {
+  font-family: var(--font-kaushan);
+}
+
+/* BACKGROUND UTILITY CLASSES */
+.bg-primary {
+  background-color: var(--clr-primary);
+}
+
+.bg-primary-light {
+  background-color: var(--clr-primary-light);
+}
+
+.bg-primary-dark {
+  background-color: var(--clr-primary-dark);
+}
+
+.bg-secondary {
+  background-color: var(--clr-secondary);
+}
+
+.bg-secondary-light {
+  background-color: var(--clr-secondary-light);
+}
+
+.bg-secondary-dark {
+  background-color: var(--clr-secondary-dark);
+}
+
+.bg-accent {
+  background-color: var(--clr-accent);
+}
+
+.bg-accent-light {
+  background-color: var(--clr-accent-light);
+}
+
+.bg-off-white {
+  background-color: var(--clr-off-white);
+}
+
+.bg-light {
+  background-color: var(--clr-light);
+}
+
+.bg-dark {
+  background-color: var(--clr-dark);
+}
+
+.bg-black {
+  background-color: var(--clr-black);
+}
+
+.bg-gradient-brand {
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, var(--clr-black), var(--clr-accent));
+}
+
+/* TEXT COLOR UTILITY CLASSES */
+.text-primary {
+  color: var(--clr-primary);
+}
+
+.text-primary-light {
+  color: var(--clr-primary-light);
+}
+
+.text-primary-dark {
+  color: var(--clr-primary-dark);
+}
+
+.text-secondary {
+  color: var(--clr-secondary);
+}
+
+.text-secondary-light {
+  color: var(--clr-secondary-light);
+}
+
+.text-secondary-dark {
+  color: var(--clr-secondary-dark);
+}
+
+.text-accent {
+  color: var(--clr-accent);
+}
+
+.text-accent-light {
+  color: var(--clr-accent-light);
+}
+
+.text-muted {
+  color: var(--clr-muted);
+}
+
+.text-light-gray {
+  color: var(--clr-light-gray);
+}
+
+.text-dark {
+  color: var(--clr-dark);
+}
+
+.text-light-clr {
+  color: var(--clr-light);
+}
+
+.text-off-white {
+  color: var(--clr-off-white);
+}
+
+.text-white {
+  color: var(--clr-white);
+}
+
+.text-success {
+  color: var(--clr-success);
+}
+
+.text-warning {
+  color: var(--clr-warning);
+}
+
+.text-error {
+  color: var(--clr-error);
+}
+
+.text-info {
+  color: var(--clr-info);
+}
+
+/* BORDER COLOR UTILITY CLASSES */
+.border-primary {
+  border-color: var(--clr-primary);
+}
+
+.border-secondary {
+  border-color: var(--clr-secondary);
+}
+
+.border-accent {
+  border-color: var(--clr-accent);
+}
+
+.border-light {
+  border-color: var(--clr-light);
+}
+
+.border-muted {
+  border-color: var(--clr-muted);
+}
+
+/* SCROLLBAR UTILITIES */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* TORN PAPER - Responsive CSS-only torn edge */
+.torn-paper {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1840 2000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M 27,26 L 9,56 L 11,158 L 4,242 L 13,400 L 7,435 L 11,523 L 3,549 L 11,615 L 1,642 L 9,691 L 5,822 L 15,958 L 5,1061 L 15,1085 L 7,1100 L 13,1172 L 5,1188 L 15,1351 L 5,1378 L 15,1419 L 5,1459 L 13,1545 L 5,1694 L 13,1772 L 5,1808 L 13,1827 L 15,1896 L 7,1948 L 21,1969 L 48,1990 L 121,1994 L 146,1986 L 183,1992 L 222,1987 L 290,1996 L 344,1988 L 424,1992 L 495,1985 L 533,1993 L 627,1992 L 655,1985 L 681,1994 L 739,1986 L 843,1994 L 942,1986 L 999,1994 L 1026,1987 L 1137,1992 L 1192,1984 L 1228,1993 L 1273,1986 L 1317,1992 L 1446,1986 L 1581,1994 L 1633,1986 L 1695,1996 L 1720,1986 L 1779,1992 L 1819,1972 L 1830,1956 L 1826,1884 L 1832,1852 L 1824,1805 L 1830,1680 L 1822,1661 L 1832,1603 L 1824,1426 L 1832,1382 L 1824,1353 L 1831,1237 L 1826,1103 L 1835,1030 L 1824,975 L 1832,848 L 1824,761 L 1836,720 L 1826,628 L 1835,575 L 1828,560 L 1824,488 L 1828,339 L 1834,326 L 1827,272 L 1834,232 L 1826,185 L 1836,99 L 1819,30 L 1772,8 L 1517,13 L 1495,3 L 1447,15 L 1409,9 L 1275,13 L 1258,7 L 1076,13 L 1054,5 L 993,15 L 959,7 L 841,15 L 780,7 L 690,15 L 650,3 L 597,13 L 499,5 L 458,13 L 434,5 L 390,15 L 369,7 L 319,11 L 305,5 L 259,13 L 208,3 L 168,15 L 94,5 L 40,15 Z'/%3E%3C/svg%3E");
+
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1840 2000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M 27,26 L 9,56 L 11,158 L 4,242 L 13,400 L 7,435 L 11,523 L 3,549 L 11,615 L 1,642 L 9,691 L 5,822 L 15,958 L 5,1061 L 15,1085 L 7,1100 L 13,1172 L 5,1188 L 15,1351 L 5,1378 L 15,1419 L 5,1459 L 13,1545 L 5,1694 L 13,1772 L 5,1808 L 13,1827 L 15,1896 L 7,1948 L 21,1969 L 48,1990 L 121,1994 L 146,1986 L 183,1992 L 222,1987 L 290,1996 L 344,1988 L 424,1992 L 495,1985 L 533,1993 L 627,1992 L 655,1985 L 681,1994 L 739,1986 L 843,1994 L 942,1986 L 999,1994 L 1026,1987 L 1137,1992 L 1192,1984 L 1228,1993 L 1273,1986 L 1317,1992 L 1446,1986 L 1581,1994 L 1633,1986 L 1695,1996 L 1720,1986 L 1779,1992 L 1819,1972 L 1830,1956 L 1826,1884 L 1832,1852 L 1824,1805 L 1830,1680 L 1822,1661 L 1832,1603 L 1824,1426 L 1832,1382 L 1824,1353 L 1831,1237 L 1826,1103 L 1835,1030 L 1824,975 L 1832,848 L 1824,761 L 1836,720 L 1826,628 L 1835,575 L 1828,560 L 1824,488 L 1828,339 L 1834,326 L 1827,272 L 1834,232 L 1826,185 L 1836,99 L 1819,30 L 1772,8 L 1517,13 L 1495,3 L 1447,15 L 1409,9 L 1275,13 L 1258,7 L 1076,13 L 1054,5 L 993,15 L 959,7 L 841,15 L 780,7 L 690,15 L 650,3 L 597,13 L 499,5 L 458,13 L 434,5 L 390,15 L 369,7 L 319,11 L 305,5 L 259,13 L 208,3 L 168,15 L 94,5 L 40,15 Z'/%3E%3C/svg%3E");
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+}

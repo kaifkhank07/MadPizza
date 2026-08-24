@@ -1,0 +1,363 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { BlurInText } from "../animations";
+import StaggerReveal from "../animations/StaggerReveal";
+import TextRoll from "../util/TextRoll";
+
+type PizzaMenuItem = {
+  id: number;
+  name: string;
+  image1: string;
+  image2: string;
+};
+
+const menuItems: PizzaMenuItem[] = [
+  {
+    id: 1,
+    name: "Margherita Pizza",
+    image1: "/assets/Images/signature1.jpg",
+    image2: "/assets/Images/signature2.jpg",
+  },
+  {
+    id: 2,
+    name: "Hawaiian Pizza",
+    image1: "/assets/Images/signature2.jpg",
+    image2: "/assets/Images/signature1.jpg",
+  },
+  {
+    id: 3,
+    name: "Four Cheese Pizza",
+    image1: "/assets/Images/signature1.jpg",
+    image2: "/assets/Images/signature2.jpg",
+  },
+  {
+    id: 4,
+    name: "Seafood Pizza",
+    image1: "/assets/Images/signature1.jpg",
+    image2: "/assets/Images/signature2.jpg",
+  },
+  {
+    id: 5,
+    name: "BBQ Chicken Pizza",
+    image1: "/assets/Images/signature2.jpg",
+    image2: "/assets/Images/signature1.jpg",
+  },
+];
+
+function MenuItem({
+  item,
+  onHover,
+}: {
+  item: PizzaMenuItem;
+  onHover: (item: PizzaMenuItem) => void;
+}) {
+  const num = String(item.id).padStart(2, "0");
+
+  return (
+    <li
+      className="flex items-baseline gap-2 cursor-pointer"
+      onMouseEnter={() => onHover(item)}
+    >
+      <span className="text-dark font-medium text-md shrink-0 leading-none">
+        {num}
+      </span>
+
+      <TextRoll
+        text={item.name}
+        className="text-dark font-normal text-3xl sm:text-5xl lg:text-6xl leading-tight"
+      />
+    </li>
+  );
+}
+
+export default function SignaturePizzas() {
+  const [activePizza, setActivePizza] = useState(menuItems[0]);
+
+  const backImageRef = useRef<HTMLDivElement>(null);
+  const frontImageRef = useRef<HTMLDivElement>(null);
+
+  const handlePizzaHover = (pizza: PizzaMenuItem) => {
+    if (pizza.id === activePizza.id) return;
+
+    setActivePizza(pizza);
+  };
+
+  useEffect(() => {
+    const images = [
+      backImageRef.current,
+      frontImageRef.current,
+    ].filter(Boolean);
+
+    if (!images.length) return;
+
+    gsap.killTweensOf(images);
+
+    gsap.fromTo(
+      images,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.inOut",
+        // stagger: 0.2,
+      }
+    );
+  }, [activePizza]);
+
+  return (
+    <section className="relative w-full px-4 py-16 md:px-10 lg:px-16 overflow-hidden">
+      <div className="w-full max-w-7xl 2xl:max-w-[1450px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 lg:gap-20">
+
+        {/* LEFT: Pizza Images */}
+        <div className="relative min-h-[320px] sm:min-h-[400px] md:min-h-[480px] lg:min-h-0">
+
+          {/* Back pizza */}
+          <div className="absolute top-4 left-4 sm:left-8 md:left-12 w-[55%] sm:w-[57%] md:w-[58%] lg:w-[60%] aspect-square overflow-visible">
+
+            {/* MAIN IMAGE — CHANGES */}
+            <div
+              ref={backImageRef}
+              className="absolute inset-0 overflow-hidden"
+            >
+              <Image
+                src={activePizza.image1}
+                alt={activePizza.name}
+                fill
+                quality={85}
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 50vw, 30vw"
+              />
+            </div>
+
+            {/* DECORATIVE IMAGE — FIXED */}
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-20 sm:-bottom-24 md:-bottom-28 lg:-bottom-32 left-0 w-24 sm:w-28 md:w-32 lg:w-36 aspect-square overflow-hidden"
+              style={{
+                animation: "float 4s ease-in-out infinite",
+              }}
+            >
+              <Image
+                src="/assets/Images/decore4.png"
+                alt=""
+                fill
+                quality={85}
+                className="object-cover object-center"
+                sizes="150px"
+              />
+            </div>
+          </div>
+
+          {/* Front pizza */}
+          <div className="absolute top-24 sm:top-28 md:top-32 lg:top-36 right-4 sm:right-8 md:right-12 lg:right-16 w-[55%] sm:w-[57%] md:w-[58%] lg:w-[60%] aspect-square overflow-visible">
+
+            {/* MAIN IMAGE — CHANGES */}
+            <div
+              ref={frontImageRef}
+              className="absolute inset-0 overflow-hidden"
+            >
+              <Image
+                src={activePizza.image2}
+                alt={activePizza.name}
+                fill
+                quality={85}
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 50vw, 30vw"
+              />
+            </div>
+
+            {/* DECORATIVE IMAGE — FIXED */}
+            <div
+              aria-hidden="true"
+              className="absolute -top-20 sm:-top-24 md:-top-28 lg:-top-32 right-0 w-24 sm:w-28 md:w-32 lg:w-36 aspect-square overflow-hidden"
+              style={{
+                animation: "float 4s ease-in-out infinite",
+              }}
+            >
+              <Image
+                src="/assets/Images/decore5.png"
+                alt=""
+                fill
+                quality={85}
+                className="object-cover object-center"
+                sizes="150px"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT: Menu */}
+        <div className="space-y-8">
+          <BlurInText
+            text="Our Signature Pizzas"
+            as="h3"
+            className="text-primary font-geist font-bold uppercase leading-tight tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-lg"
+          />
+
+          <StaggerReveal
+            duration={1.5}
+            stagger={0.2}
+            distance={40}
+            start="top 85%"
+            className="space-y-8"
+          >
+            {menuItems.map((item) => (
+              <MenuItem
+                key={item.id}
+                item={item}
+                onHover={handlePizzaHover}
+              />
+            ))}
+          </StaggerReveal>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+// import Image from "next/image";
+// import { BlurInText } from "../animations";
+// import StaggerReveal from "../animations/StaggerReveal";
+// import TextRoll from "../util/TextRoll";
+
+// /* Types & Data */
+// type PizzaMenuItem = {
+//   id: number;
+//   name: string;
+// };
+
+// const menuItems: PizzaMenuItem[] = [
+//   { id: 1, name: "Margherita Pizza" },
+//   { id: 2, name: "Hawaiian Pizza" },
+//   { id: 3, name: "Four Cheese Pizza" },
+//   { id: 4, name: "Seafood Pizza" },
+//   { id: 5, name: "BBQ Chicken Pizza" },
+// ];
+
+// /* Sub-components */
+// function MenuItem({ item }: { item: PizzaMenuItem }) {
+//   const num = String(item.id).padStart(2, "0");
+//   return (
+//     <li className="flex items-baseline gap-2">
+//       <span className="text-dark font-medium text-md shrink-0 leading-none">
+//         {num}
+//       </span>
+//       <TextRoll text={item.name} className="text-dark font-normal text-3xl sm:text-5xl lg:text-6xl leading-tight" />
+//     </li>
+//   );
+// }
+
+// /* SIGNATURE PIZZAS SECTION */
+// export default function SignaturePizzas() {
+//   return (
+//     <section className="relative w-full px-4 py-16 md:px-10 lg:px-16 overflow-hidden">
+//       <div className="w-full max-w-7xl 2xl:max-w-[1450px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 lg:gap-20">
+//         {/* Left: stacked pizza images with colored card frames */}
+//         <div className="relative min-h-[320px] sm:min-h-[400px] md:min-h-[480px] lg:min-h-0">
+//           {/* Back pizza image (smaller, top-left) — leaf is positioned relative to this */}
+//           <div className="absolute top-4 left-4 sm:left-8 md:left-12 w-[55%] sm:w-[57%] md:w-[58%] lg:w-[60%] aspect-square overflow-visible">
+//             <Image
+//               src="/assets/Images/top-pick1.jpg"
+//               alt="Signature pizza"
+//               fill
+//               quality={85}
+//               className="object-cover object-center"
+//               sizes="(max-width: 1024px) 50vw, 30vw"
+//             />
+
+//             {/* Decorative leaf — positioned relative to the first image */}
+//             <div
+//               aria-hidden="true"
+//               className="absolute -bottom-20 sm:-bottom-24 md:-bottom-28 lg:-bottom-32 left-0 text-3xl w-24 sm:w-28 md:w-32 lg:w-36 aspect-square border"
+//               style={{ animation: "float 4s ease-in-out infinite" }}
+//             >
+//               <Image
+//                 src="/assets/Images/top-pick1.jpg"
+//                 alt="Signature pizza"
+//                 fill
+//                 quality={85}
+//                 className="object-cover object-center"
+//                 sizes="(max-width: 1024px) 50vw, 30vw"
+//               />
+//             </div>
+//           </div>
+
+//           {/* Front pizza image (larger, centre-right) */}
+//           <div className="absolute top-24 sm:top-28 md:top-32 lg:top-36 right-4 sm:right-8 md:right-12 lg:right-16 w-[55%] sm:w-[57%] md:w-[58%] lg:w-[60%] aspect-square overflow-visible">
+//             <Image
+//               src="/assets/Images/top-pick2.jpg"
+//               alt="Signature pizza"
+//               fill
+//               quality={85}
+//               className="object-cover object-center"
+//               sizes="(max-width: 1024px) 50vw, 30vw"
+//             />
+
+//             {/* Decorative leaf — positioned relative to the first image */}
+//             <div
+//               aria-hidden="true"
+//               className="absolute -top-20 sm:-top-24 md:-top-28 lg:-top-32 right-0 text-3xl w-24 sm:w-28 md:w-32 lg:w-36 aspect-square border"
+//               style={{ animation: "float 4s ease-in-out infinite" }}
+//             >
+//               <Image
+//                 src="/assets/Images/top-pick1.jpg"
+//                 alt="Signature pizza"
+//                 fill
+//                 quality={85}
+//                 className="object-cover object-center"
+//                 sizes="(max-width: 1024px) 50vw, 30vw"
+//               />
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Right: heading + numbered menu list */}
+//         <div className="space-y-8">
+//           <BlurInText
+//             text="Our Signature Pizzas"
+//             as="h3"
+//             className="text-primary font-geist font-bold uppercase leading-tight tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-lg"
+//           />
+
+//           <StaggerReveal
+//             duration={1.5}
+//             stagger={0.2}
+//             distance={40}
+//             start="top 85%"
+//             className="space-y-8"
+//           >
+//             {menuItems.map((item) => (
+//               <MenuItem key={item.id} item={item} />
+//             ))}
+//           </StaggerReveal>
+//         </div>
+//       </div>
+
+//       {/* Float keyframe (shared) */}
+//       <style>{`
+//         @keyframes float {
+//           0%, 100% { transform: translateY(0); }
+//           50%       { transform: translateY(-8px); }
+//         }
+//       `}</style>
+//     </section>
+//   );
+// }
