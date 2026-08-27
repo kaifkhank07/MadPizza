@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 interface ButtonProps {
   children: ReactNode;
   href?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
   className?: string;
   type?: "button" | "submit" | "reset";
   target?: "_self" | "_blank";
@@ -37,6 +37,7 @@ export default function Button({
     return (
       <Link
         href={href}
+        onClick={onClick}
         target={target}
         rel={rel}
         aria-label={ariaLabel}

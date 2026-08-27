@@ -1,18 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { FaTwitter, FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+
 import { StaggerReveal } from "../animations";
+import { info } from "@/data/info";
 
 /* Types */
 type NavLink = { label: string; href: string };
-type ScheduleRow = { day: string; hours: string };
 
 /* Data */
 const mainPages: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Menu", href: "/menu" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About Us", href: "/#our-story" },
+  { label: "Menu", href: "/#menu" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 
 const legalPages: NavLink[] = [
@@ -20,19 +22,9 @@ const legalPages: NavLink[] = [
   { label: "Terms & Conditions", href: "/terms-and-conditions" },
 ];
 
-const schedule: ScheduleRow[] = [
-  { day: "Mon", hours: "Closed" },
-  { day: "Tue to Thu", hours: "11 AM – 10 PM" },
-  { day: "Fri", hours: "Closed" },
-  { day: "Sat to Sun", hours: "12 PM – 7 PM" },
-];
-
-const socials = [
-  { label: "X", href: "https://x.com", Icon: FaTwitter },
-  { label: "Instagram", href: "https://instagram.com", Icon: FaInstagram },
-  { label: "Facebook", href: "https://facebook.com", Icon: FaFacebookF },
-  { label: "LinkedIn", href: "https://linkedin.com", Icon: FaLinkedinIn },
-];
+const infodata = info[0];
+const socials = infodata.socials ?? [];
+const schedule = infodata.schedule ?? [];
 
 /* Sub-components */
 function ColTitle({ children }: { children: React.ReactNode }) {
@@ -56,9 +48,10 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 /* FOOTER */
 export default function Footer() {
+
   return (
     <>
-      <footer className="relative w-full bg-primary pt-16 pb-8 space-y-8 overflow-hidden">
+      <footer id="contact" className="relative w-full bg-primary pt-16 pb-8 space-y-8 overflow-hidden scroll-mt-24">
         {/* Scrolling text — duplicated for seamless loop */}
         <div className="relative w-full flex overflow-hidden">
           {[0, 1].map((copy) => (
@@ -106,16 +99,20 @@ export default function Footer() {
                 <p className="text-white/70 font-kanit font-light text-base lg:text-lg whitespace-nowrap">
                   Email Us:{" "}
                   <Link
-                    href="mailto:demo.pizzaro@gmail.com"
+                    href={`mailto: ${infodata.email}`}
                     className="text-white hover:text-white/70 transition-colors"
                   >
-                    demo.pizzaro@gmail.com
+                    {infodata.email}
                   </Link>
                 </p>
 
                 <p className="text-white/70 font-kanit font-light text-base lg:text-lg whitespace-nowrap">
                   or submit an:{" "}
-                  <Link href="/contact" className="text-white hover:text-white/70 transition-colors">
+                  <Link
+                    href="/#contact"
+
+                    className="text-white hover:text-white/70 transition-colors"
+                  >
                     contact form
                   </Link>
                 </p>
@@ -156,8 +153,8 @@ export default function Footer() {
                   <FooterLink key={l.href} href={l.href} label={l.label} />
                 ))}
 
-                <FooterLink href={`tel: 12345678900`} label="Phone: +12345678900" />
-                <FooterLink href={`mailto: contact@gmail.com`} label="Email: contact@gmail.com" />
+                <FooterLink href={`tel: ${infodata.mobile}`} label={`Phone: ${infodata.mobile}`} />
+                <FooterLink href={`mailto: ${infodata.email}`} label={`Email: ${infodata.email}`} />
               </ul>
             </div>
 
@@ -182,11 +179,11 @@ export default function Footer() {
         {/* ── Bottom copyright bar ── */}
         <div className="flex justify-center items-center gap-2 text-center text-white/70 font-kanit font-light text-base lg:text-lg tracking-wide">
           <p className="">
-            © 2026 Copyright - MadPizza
+            © 2026 Copyright - {infodata.name}
           </p>
           <span> | </span>
-          <a href="https://buzzlinkstudios.com" target="_blank" className="hover:text-white transition-colors">
-            Buzzlink Studios
+          <a href={infodata.developBy.url} target="_blank" className="hover:text-white transition-colors">
+            {`Developed by ${infodata.developBy.name}`}
           </a>
         </div>
       </footer>

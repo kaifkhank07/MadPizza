@@ -1,45 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Button from "../util/Button";
 import { Leaf } from "lucide-react";
 import { BlurInText, FadeInLines, ViewReveal } from "../animations";
 import AnimatedImage from "../animations/AnimatedImage";
-
-/* Types & Data */
-type BestsellerBtn = {
-  text: string;
-  href: string;
-};
-
-type BestsellerItem = {
-  id: number;
-  img: string;
-  title: string;
-  description?: string;
-  btn?: BestsellerBtn;
-};
-
-const bestsellers: BestsellerItem[] = [
-  {
-    id: 1,
-    img: "/assets/Images/top-pick1.jpg",
-    title: "Hot",
-    btn: { text: "Order Now", href: "/menu" },
-  },
-  {
-    id: 2,
-    img: "/assets/Images/top-pick2.jpg",
-    title: "Fresh Ingredient",
-    description:
-      "We specialize in user interface design, front-end development, design process.",
-  },
-  {
-    id: 3,
-    img: "/assets/Images/top-pick3.jpg",
-    title: "Fresh Ingredient",
-    description:
-      "We specialize in user interface design, front-end development, design process.",
-  },
-];
+import { useScrollNavigation } from "@/utils/scroll";
+import { bestsellers, type BestsellerItem } from "@/data/best";
 
 /* Sub-components */
 function ContentBlock({
@@ -78,6 +45,7 @@ function ImageBlock({
   className?: string;
   direction?: "up" | "down" | "left" | "right";
 }) {
+  const { handleScroll } = useScrollNavigation();
   return (
     <div className={`relative flex-1 overflow-hidden min-h-80 sm:min-h-120 aspect-square group ${className}`}>
       <AnimatedImage
@@ -99,7 +67,12 @@ function ImageBlock({
       {item.btn && (
         <div className="z-10 absolute bottom-10 left-0 w-full flex justify-center">
           <ViewReveal startDelay={1200} duration={1000}>
-            <Button href={item.btn.href} variant="white" className="inline-block">
+            <Button
+              href={item.btn.href}
+              onClick={(e) => handleScroll(e, item.btn!.href)}
+              variant="white"
+              className="inline-block"
+            >
               {item.btn.text}
             </Button>
           </ViewReveal>
@@ -111,6 +84,7 @@ function ImageBlock({
 
 /* Main component */
 export default function Bestsellers() {
+  const { handleScroll } = useScrollNavigation();
   return (
     <section className="w-full px-4 py-16 md:px-10 lg:px-16 overflow-x-hidden">
       <div className="w-full max-w-7xl 2xl:max-w-[1450px] mx-auto space-y-16">
@@ -136,7 +110,11 @@ export default function Bestsellers() {
             />
 
             <ViewReveal startDelay={1200} duration={1000}>
-              <Button href="/menu" className="inline-block">
+              <Button
+                href="/#menu"
+                onClick={(e) => handleScroll(e, "/#menu")}
+                className="inline-block"
+              >
                 Order Now
               </Button>
             </ViewReveal>
@@ -188,5 +166,3 @@ export default function Bestsellers() {
     </section>
   );
 }
-
-

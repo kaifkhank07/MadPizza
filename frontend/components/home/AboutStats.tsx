@@ -1,43 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
 import Button from "../util/Button";
 import { BlurInText, ViewReveal } from "../animations";
 import NumberRoller from "../animations/NumberRoller";
-
-/* Types & Data */
-type StatItem = {
-  id: string;
-  value: string;
-  label: string;
-  primary: boolean; // alternating dark / light tiles
-};
-
-const stats: StatItem[] = [
-  {
-    id: "stat-dishes",
-    value: "100+",
-    label: "Seasonal Signature in Enjoy Restaurant",
-    primary: false,
-  },
-  {
-    id: "stat-healthy",
-    value: "100%",
-    label: "Healthy Choice with Nutritious Options",
-    primary: true,
-  },
-  {
-    id: "stat-pan",
-    value: "100+",
-    label: "Seasonal Multi in One Pan",
-    primary: true,
-  },
-  {
-    id: "stat-choice",
-    value: "100%",
-    label: "Healthy Choice with Nutritious Options",
-    primary: false,
-  },
-];
+import { useScrollNavigation } from "@/utils/scroll";
+import { stats, type StatItem } from "@/data/stats";
 
 /* Sub-components */
 function StatTile({ item }: { item: StatItem }) {
@@ -77,6 +45,7 @@ function StatTile({ item }: { item: StatItem }) {
 
 /* ABOUT & STATS SECTION */
 export default function AboutStats() {
+  const { handleScroll } = useScrollNavigation();
   return (
     <section className="relative w-full px-0 py-0 overflow-hidden">
       {/* Top half: dark info panel + pizza image */}
@@ -98,7 +67,12 @@ export default function AboutStats() {
           </ViewReveal>
 
           <ViewReveal startDelay={1000} duration={1000}>
-            <Button href="/about" variant="white" className="inline-block">
+            <Button
+              href="/#our-story"
+              onClick={(e) => handleScroll(e, "/#our-story")}
+              variant="white"
+              className="inline-block"
+            >
               More about us
             </Button>
           </ViewReveal>

@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { usePathname } from "next/navigation";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
 }
+
+// Ensure SSR compatibility with useLayoutEffect
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 interface StaggerRevealProps {
     /** Elements to reveal */
@@ -36,7 +40,6 @@ interface StaggerRevealProps {
     /** Extra classes applied to the wrapper */
     className?: string;
 
-
     displayContents?: boolean;
 }
 
@@ -53,8 +56,9 @@ export default function StaggerReveal({
     displayContents = false,
 }: StaggerRevealProps) {
     const wrapperRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
 
-    useEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         const wrapper = wrapperRef.current;
 
         if (!wrapper) return;
@@ -85,7 +89,14 @@ export default function StaggerReveal({
             });
         }, wrapper);
 
+        // Next.js layout transitions might cause shifts; refresh ScrollTrigger 
+        // shortly after mount/navigation to ensure accurate start markers.
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 150);
+
         return () => {
+            clearTimeout(timer);
             ctx.revert();
         };
     }, [
@@ -96,6 +107,7 @@ export default function StaggerReveal({
         initialOpacity,
         ease,
         replayOnScroll,
+        pathname, // Re-run animation when navigating between routes
     ]);
 
     return (

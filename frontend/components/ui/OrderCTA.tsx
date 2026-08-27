@@ -5,6 +5,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "../util/Button";
+import { useScrollNavigation } from "@/utils/scroll";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -12,6 +13,7 @@ if (typeof window !== "undefined") {
 
 /* ORDER CTA SECTION */
 export default function OrderCTA() {
+  const { handleScroll } = useScrollNavigation();
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -108,7 +110,11 @@ export default function OrderCTA() {
             Order Now Before All Sells Out.
           </h3>
 
-          <Button href="/menu" className="inline-block">
+          <Button
+            href="/#menu"
+            onClick={(e) => handleScroll(e, "/#menu")}
+            className="inline-block"
+          >
             Explore Menu
           </Button>
         </div>

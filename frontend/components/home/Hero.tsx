@@ -1,10 +1,13 @@
-import Image from "next/image";
+"use client";
+
 import Button from "../util/Button";
 import { BlurInText, ViewReveal } from "../animations";
+import { useScrollNavigation } from "@/utils/scroll";
 
 export default function Hero() {
+  const { handleScroll } = useScrollNavigation();
   return (
-    <section className="relative w-full min-h-screen flex items-center sm:items-end justify-start px-4 py-20 md:px-10 lg:px-16 overflow-hidden">
+    <section id="home" className="relative w-full min-h-screen flex items-center sm:items-end justify-start px-4 py-20 md:px-10 lg:px-16 overflow-hidden">
       {/* ── Background Image ── */}
       {/* <Image
         src="/assets/Images/feature-bg.jpg"
@@ -46,7 +49,12 @@ export default function Hero() {
 
           {/* CTA Button */}
           <ViewReveal startDelay={1600} duration={1000}>
-            <Button variant="white" href="/menu" className="inline-block">
+            <Button
+              variant="white"
+              href="/#menu"
+              onClick={(e) => handleScroll(e, "/#menu")}
+              className="inline-block"
+            >
               Order Now
             </Button>
           </ViewReveal>

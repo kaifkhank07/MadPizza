@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -10,43 +9,7 @@ import gsap from "gsap";
 
 /* Swiper core CSS */
 import "swiper/css";
-import PaperBorder from "../util/PaperBorder";
-
-/* Types & Data */
-type TestimonialItem = {
-  id: number;
-  quote: string;
-  name: string;
-  role: string;
-  img: string;
-};
-
-const testimonials: TestimonialItem[] = [
-  {
-    id: 1,
-    img: "/assets/Images/top-pick1.jpg",
-    quote:
-      "The pizza is a perfect combination of flavours, truly a work of art. Nice crispy crust, super fresh ingredients, excellent toppings. Highly recommend!",
-    name: "Fuchsia Dunlop",
-    role: "Manager",
-  },
-  {
-    id: 2,
-    img: "/assets/Images/top-pick2.jpg",
-    quote:
-      "Absolutely incredible pizza! The dough is perfectly chewy, the sauce is rich and flavourful, and every bite feels like pure bliss. Will be back every week.",
-    name: "James Rivera",
-    role: "Food Critic",
-  },
-  {
-    id: 3,
-    img: "/assets/Images/top-pick3.jpg",
-    quote:
-      "Best pizza I've had outside of Naples. The wood-fired crust has that perfect char and the fresh mozzarella just melts in your mouth.",
-    name: "Sofia Martini",
-    role: "Regular Customer",
-  },
-];
+import { testimonials, type TestimonialItem } from "@/data/testimonial";
 
 /* Sub-components */
 function ArrowBtn({
