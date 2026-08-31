@@ -64,7 +64,7 @@ export default function Footer() {
               className="flex shrink-0 items-center"
               style={{ animation: "marquee 18s linear infinite" }}
             >
-              {["REAL TASTE", "REAL TRADITION", "REAL PIZZA"].map((word, index) => (
+              {["MAD PIZZA", "MAD PIZZA", "MAD PIZZA"].map((word, index) => (
                 <div key={index} className="flex items-center gap-10">
                   <h3 className="text-white font-geist font-extrabold uppercase text-5xl sm:text-7xl lg:text-9xl tracking-tight leading-none whitespace-nowrap px-6 sm:px-10 select-none">
                     {word}
@@ -111,7 +111,7 @@ export default function Footer() {
                   </p>
                 ))}
 
-                <p className="text-white/70 font-kanit font-light text-base lg:text-lg pt-1">
+                {/* <p className="text-white/70 font-kanit font-light text-base lg:text-lg pt-1">
                   or submit a{" "}
                   <Link
                     href="/#contact"
@@ -119,7 +119,7 @@ export default function Footer() {
                   >
                     contact form
                   </Link>
-                </p>
+                </p> */}
               </div>
 
               <div className="flex items-center gap-3">
