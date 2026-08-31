@@ -7,6 +7,8 @@ import { BlurInText, FadeInLines, ViewReveal } from "../animations";
 import AnimatedImage from "../animations/AnimatedImage";
 import { useScrollNavigation } from "@/utils/scroll";
 import { bestsellers, type BestsellerItem } from "@/data/best";
+import { useOrderModal } from "../util/OrderModalContext";
+import { assets } from "@/data/assets";
 
 /* Sub-components */
 function ContentBlock({
@@ -46,6 +48,7 @@ function ImageBlock({
   direction?: "up" | "down" | "left" | "right";
 }) {
   const { handleScroll } = useScrollNavigation();
+  const { openModal } = useOrderModal();
   return (
     <div className={`relative flex-1 overflow-hidden min-h-80 sm:min-h-120 aspect-square group ${className}`}>
       <AnimatedImage
@@ -68,8 +71,7 @@ function ImageBlock({
         <div className="z-10 absolute bottom-10 left-0 w-full flex justify-center">
           <ViewReveal startDelay={1200} duration={1000}>
             <Button
-              href={item.btn.href}
-              onClick={(e) => handleScroll(e, item.btn!.href)}
+              onClick={openModal}
               variant="white"
               className="inline-block"
             >
@@ -84,7 +86,7 @@ function ImageBlock({
 
 /* Main component */
 export default function Bestsellers() {
-  const { handleScroll } = useScrollNavigation();
+  const { openModal } = useOrderModal();
   return (
     <section className="w-full px-4 py-16 md:px-10 lg:px-16 overflow-x-hidden">
       <div className="w-full max-w-7xl 2xl:max-w-[1450px] mx-auto space-y-16">
@@ -111,8 +113,7 @@ export default function Bestsellers() {
 
             <ViewReveal startDelay={1200} duration={1000}>
               <Button
-                href="/#menu"
-                onClick={(e) => handleScroll(e, "/#menu")}
+                onClick={openModal}
                 className="inline-block"
               >
                 Order Now
@@ -151,7 +152,7 @@ export default function Bestsellers() {
           {/* Hot badge – sits on top-left corner of the grid, outside grid stacking context */}
           <div className="absolute -top-6 -left-6 sm:-top-9 sm:-left-9 z-20 w-20 sm:w-24 aspect-square flex justify-center items-center pointer-events-none">
             <Image
-              src="/assets/Images/badge.png"
+              src={assets.images.badge}
               alt="Hot"
               fill
               className="object-contain"

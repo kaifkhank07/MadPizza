@@ -1,3 +1,5 @@
+import { assets } from "./assets";
+
 export type PizzaMenuItem = {
   id: number;
   name: string;
@@ -8,32 +10,32 @@ export type PizzaMenuItem = {
 export const menuItems: PizzaMenuItem[] = [
   {
     id: 1,
-    name: "Margherita Pizza",
-    image1: "/assets/Images/pizza/Margherita Pizza.png",
-    image2: "/assets/Images/pizza/Margherita Pizza1.png",
+    name: "Newyorker",
+    image1: assets.images.pizza.newyorker,
+    image2: assets.images.pizza.newyorker1,
   },
   {
     id: 2,
-    name: "Prosciutto Arugula",
-    image1: "/assets/Images/pizza/Prosciutto Arugula.png",
-    image2: "/assets/Images/pizza/Prosciutto Arugula1.png",
+    name: "Hot Honey Roni",
+    image1: assets.images.pizza.hothoneyroni,
+    image2: assets.images.pizza.hothoneyroni1,
   },
   {
     id: 3,
-    name: "Funghi",
-    image1: "/assets/Images/pizza/Funghi.png",
-    image2: "/assets/Images/pizza/Funghi1.png",
+    name: "Margherita",
+    image1: assets.images.pizza.margherita,
+    image2: assets.images.pizza.margherita1,
   },
   {
     id: 4,
-    name: "Figgy Piggy",
-    image1: "/assets/Images/pizza/Figgy Piggy.png",
-    image2: "/assets/Images/pizza/Figgy Piggy1.png",
+    name: "Mad Soppra",
+    image1: assets.images.pizza.madsoppra,
+    image2: assets.images.pizza.madsoppra1,
   },
   {
     id: 5,
-    name: "Chickpotle",
-    image1: "/assets/Images/pizza/Chickpotle.png",
-    image2: "/assets/Images/pizza/Chickpotle1.png",
+    name: "Vodka Vice",
+    image1: assets.images.pizza.vodkavice,
+    image2: assets.images.pizza.vodkavice1,
   },
 ];

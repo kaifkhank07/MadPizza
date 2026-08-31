@@ -1,3 +1,5 @@
+import { assets } from "@/data/assets";
+
 export default function PaperCutCard() {
   return (
     <div className="min-h-screen bg-amber-50 p-8 flex items-center justify-center">
@@ -6,10 +8,10 @@ export default function PaperCutCard() {
         <div
           className="absolute inset-0 bg-[#CA2F06]"
           style={{
-            maskImage: 'url("/assets/Images/border cut.svg")',
+            maskImage: `url("${assets.images.borderCut}")`,
             maskSize: "100% 100%",
             maskRepeat: "no-repeat",
-            WebkitMaskImage: 'url("/assets/Images/border cut.svg")',
+            WebkitMaskImage: `url("${assets.images.borderCut}")`,
             WebkitMaskSize: "100% 100%",
             WebkitMaskRepeat: "no-repeat",
           }}

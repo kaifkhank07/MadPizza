@@ -3,10 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { assets } from "@/data/assets";
 import gsap from "gsap";
 import Button from "../util/Button";
 import PaperBorder from "../util/PaperBorder";
 import { useScrollNavigation } from "@/utils/scroll";
+import { useOrderModal } from "../util/OrderModalContext";
 
 const NAV_LINKS = [
   { label: "Home", href: "/#home" },
@@ -17,6 +19,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { handleScroll } = useScrollNavigation();
+  const { openModal } = useOrderModal();
 
   const navbarRef = useRef<HTMLElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -83,8 +86,7 @@ export default function Navbar() {
             className="flex items-center gap-2 shrink-0"
           >
             <Image
-              // src="/assets/Images/logo.png"
-              src="/assets/Images/madpizzalogo.png"
+              src={assets.images.madPizzaLogo}
               alt="Mad Pizza Logo"
               width={100}
               height={100}
@@ -110,12 +112,11 @@ export default function Navbar() {
             {/* ── CTA Button ── */}
             <div className="hidden md:block">
               <Button
-                href="/#contact"
-                onClick={(e) => handleScroll(e, "/#contact")}
+                onClick={openModal}
                 variant="white"
                 className="inline-block"
               >
-                Contact Us
+                Locations
               </Button>
             </div>
           </ul>
@@ -165,16 +166,12 @@ export default function Navbar() {
 
             {/* Contact */}
             <li>
-              <Link
-                href="/#contact"
-                onClick={(e) => {
-                  handleScroll(e, "/#contact");
-                  setIsOpen(false);
-                }}
-                className="mt-2 block text-center bg-white text-primary hover:bg-gray-100 font-semibold py-3 rounded-full transition-colors duration-300"
+              <button
+                onClick={openModal}
+                className="mt-2 w-full block text-center bg-white text-primary hover:bg-gray-100 font-semibold px-4 py-3 rounded-full transition-colors duration-300"
               >
-                Contact us
-              </Link>
+                Locations
+              </button>
             </li>
           </ul>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { OrderModalProvider } from "@/components/util/OrderModalContext";
 import "./globals.css";
 
 // ── Kanit (default body font) ────────────────────────────────────────────────
@@ -39,11 +40,13 @@ const kaushan = localFont({
   display: "swap",
 });
 
+import { assets } from "@/data/assets";
+
 export const metadata: Metadata = {
   title: "Mad Pizza",
   description: "Delicious pizzas, crafted with passion.",
   icons: {
-    icon: "/assets/Images/logo.png",
+    icon: assets.images.madPizzaLogo,
   },
 };
 
@@ -54,9 +57,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${kanit.variable} ${geist.variable} ${kaushan.variable} h-full antialiased`}
     >
       <body className="font-kanit min-h-full flex flex-col">
-        <Navbar />
-        {children}
-        <Footer />
+        <OrderModalProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </OrderModalProvider>
       </body>
     </html>
   );

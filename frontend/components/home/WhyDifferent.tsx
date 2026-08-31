@@ -8,6 +8,7 @@ import PaperBorder from "../util/PaperBorder";
 import { BlurInText } from "../animations";
 import StaggerReveal from "../animations/StaggerReveal";
 import { features, type FeatureItem } from "@/data/feature";
+import { assets } from "@/data/assets";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -175,7 +176,7 @@ export default function WhyDifferent() {
     >
       {/* Background pizza image */}
       <Image
-        src="/assets/Images/feature-bg.jpg"
+        src={assets.images.featureBg}
         alt="Pizza restaurant background"
         fill
         quality={80}
@@ -193,7 +194,7 @@ export default function WhyDifferent() {
         className="absolute top-8 left-8 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 z-10"
       >
         <Image
-          src="/assets/Images/decore1.png"
+          src={assets.images.decore1}
           alt=""
           fill
           className="object-contain drop-shadow-lg"
@@ -208,7 +209,7 @@ export default function WhyDifferent() {
         className="absolute top-6 right-10 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 z-10"
       >
         <Image
-          src="/assets/Images/decore2.png"
+          src={assets.images.decore2}
           alt=""
           fill
           className="object-contain drop-shadow-lg"
@@ -223,7 +224,7 @@ export default function WhyDifferent() {
         className="absolute bottom-10 right-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 z-10"
       >
         <Image
-          src="/assets/Images/decore3.png"
+          src={assets.images.decore3}
           alt=""
           fill
           className="object-contain drop-shadow-lg"

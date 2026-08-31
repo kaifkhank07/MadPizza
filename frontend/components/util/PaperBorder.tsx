@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { assets } from "@/data/assets";
 
 interface PaperBorderProps {
   children: ReactNode;
@@ -18,7 +19,7 @@ export default function PaperBorder({
   children,
   bgColor = "var(--clr-primary)",
   hoverBgColor,
-  maskSvg = "/assets/Images/border cut.svg",
+  maskSvg = assets.images.borderCut,
   className = "",
   inset = "4px",
 }: PaperBorderProps) {

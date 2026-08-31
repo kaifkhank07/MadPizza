@@ -6,6 +6,8 @@ import { BlurInText, ViewReveal } from "../animations";
 import NumberRoller from "../animations/NumberRoller";
 import { useScrollNavigation } from "@/utils/scroll";
 import { stats, type StatItem } from "@/data/stats";
+import { info } from "@/data/info";
+import { assets } from "@/data/assets";
 
 /* Sub-components */
 function StatTile({ item }: { item: StatItem }) {
@@ -46,6 +48,9 @@ function StatTile({ item }: { item: StatItem }) {
 /* ABOUT & STATS SECTION */
 export default function AboutStats() {
   const { handleScroll } = useScrollNavigation();
+  const infodata = info[0];
+  const schedule = infodata.schedule ?? [];
+
   return (
     <section className="relative w-full px-0 py-0 overflow-hidden">
       {/* Top half: dark info panel + pizza image */}
@@ -53,7 +58,7 @@ export default function AboutStats() {
         {/* Left – dark panel */}
         <div className="order-2 lg:order-1 bg-primary p-4 sm:p-8 md:p-12 lg:p-16 space-y-6">
           <BlurInText
-            text="We Have Been Around Since 2020!"
+            text="We Have Been Around 2020 to 2024!"
             as="h3"
             className="text-light font-geist font-semibold uppercase text-2xl sm:text-3xl md:text-4xl lg:text-6xl"
           />
@@ -79,42 +84,33 @@ export default function AboutStats() {
 
           {/* Address & Hours row */}
           <ViewReveal startDelay={1000} duration={1000}>
-            <div className="grid grid-cols-2 gap-12">
-              <div className="">
-                <p className="text-white font-light text-base uppercase tracking-widest mb-2">
-                  Find Us
-                </p>
-
-                <p className="text-white/90 text-sm">
-                  100 Burrard St, New York, NY
-                </p>
-                <p className="text-white/90 text-sm">(347) 415-0361</p>
-                <p className="text-white/90 text-sm">info@madpizza.com</p>
-              </div>
-
-              <div className="">
-                <p className="text-white font-light text-base uppercase tracking-widest mb-2">
-                  Opening Hours
-                </p>
-                <p className="text-white/90 text-sm">
-                  Monday – Friday: 11AM – 10PM
-                </p>
-                <p className="text-white/90 text-sm">
-                  Saturday: 11AM – 11PM
-                </p>
-                <p className="text-white/90 text-sm">
-                  Sunday: 12PM – 9PM
-                </p>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
+              {infodata.branches.map((branch) => (
+                <div key={branch.name} className="space-y-1">
+                  <p className="text-white font-light text-base uppercase tracking-widest mb-2">
+                    {branch.name}
+                  </p>
+                  <p className="text-white/80 text-base">{branch.address}</p>
+                  <p className="text-white/80 text-base">
+                    <a href={`tel:${branch.mobile.replace(/\s+/g, "")}`} className="hover:text-white transition-colors">
+                      {branch.mobile}
+                    </a>
+                  </p>
+                  <p className="text-white/80 text-base">
+                    <a href={`mailto:${branch.email}`} className="hover:text-white transition-colors">
+                      {branch.email}
+                    </a>
+                  </p>
+                </div>
+              ))}
             </div>
           </ViewReveal>
-
         </div>
 
         {/* Right – stacked pizza images */}
         <div className="order-1 lg:order-2 relative min-h-[320px] lg:min-h-0 overflow-hidden">
           <Image
-            src="/assets/Images/stats1.jpg"
+            src={assets.images.stats1}
             alt="Artisan pizza being prepared"
             fill
             quality={85}
@@ -127,17 +123,16 @@ export default function AboutStats() {
       </div>
 
       {/* Bottom half: 2×2 stat tiles grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2">
+      {/* <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="relative min-h-[320px] lg:min-h-[460px] overflow-hidden">
           <Image
-            src="/assets/Images/stats2.png"
+            src={assets.images.stats2}
             alt="Artisan pizza being prepared"
             fill
             quality={85}
             className="object-cover object-center transition-transform duration-700 hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          {/* gradient */}
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/40" />
         </div>
 
@@ -146,7 +141,7 @@ export default function AboutStats() {
             <StatTile key={item.id} item={item} />
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

@@ -16,26 +16,44 @@ export type DevelopBy = {
   url: string;
 }
 
+export type Branch = {
+  name: string;
+  address: string;
+  mobile: string;
+  email: string;
+  location?: string;
+  orderUrl?: string;
+};
+
 export type InfoItem = {
   name: string;
-  email: string;
-  mobile: string;
-  address: string;
-  location?: string;
+  branches: Branch[];
   socials?: SocialItem[];
   schedule?: ScheduleItem[];
   developBy: DevelopBy;
 };
 
-
-
 export const info: InfoItem[] = [
   {
-    name: " MadPizza",
-    email: "info@madpizza.com",
-    mobile: "+1 234 567 890",
-    address: "77 Qintai Rd, Tianjin, China",
-    location: "77 Qintai Rd, Tianjin, China",
+    name: "MadPizza",
+    branches: [
+      {
+        name: "Bolton",
+        address: "15 Allan Drive",
+        mobile: "(905) 951-3334",
+        email: "inquiries@themadpizza.ca",
+        location: "15 Allan Drive, Bolton, ON",
+        orderUrl: "https://order.toasttab.com/online/mad-pizza-bolton-unit-14-15-allan-drive",
+      },
+      {
+        name: "Waterloo",
+        address: "572 King St N",
+        mobile: "(548) 889-5647",
+        email: "waterloo@themadpizza.ca",
+        location: "572 King St N, Waterloo, ON",
+        orderUrl: "https://order.toasttab.com/online/mad-pizza-waterloo",
+      },
+    ],
     socials: [
       { label: "Instagram", href: "https://www.instagram.com/madpizza.ca", Icon: FaInstagram },
       { label: "Facebook", href: "https://www.facebook.com/p/MAD-Pizza-61568901476386", Icon: FaFacebookF },

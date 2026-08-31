@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "../util/Button";
 import { useScrollNavigation } from "@/utils/scroll";
+import { assets } from "@/data/assets";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -72,7 +73,7 @@ export default function OrderCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[420px] sm:min-h-[800px] flex justify-center items-center px-4 md:px-10 lg:px-16 overflow-hidden"
+      className="relative w-full min-h-[620px] sm:min-h-[800px] flex justify-center items-center px-4 md:px-10 lg:px-16 overflow-hidden"
     >
       {/* Background */}
       <div
@@ -80,7 +81,7 @@ export default function OrderCTA() {
         className="absolute inset-0 will-change-transform"
       >
         <Image
-          src="/assets/Images/cta-bg.jpg"
+          src={assets.images.ctaBg}
           alt="People enjoying Mad Pizza"
           fill
           quality={80}
@@ -96,13 +97,13 @@ export default function OrderCTA() {
       {/* Center Content Card */}
       <div
         ref={contentRef}
-        className="relative w-full max-w-lg mx-auto min-h-[520px] flex p-4 pb-8 lg:pb-12 overflow-hidden will-change-transform"
+        className="relative w-full max-w-lg mx-auto min-h-[400px] md:min-h-[520px] aspect-[5/4] flex p-4 pb-8 lg:pb-12 overflow-hidden will-change-transform"
       >
         <Image
-          src="/assets/Images/cta-frame.png"
+          src={assets.images.ctaFrame}
           alt=""
           fill
-          className="object-cover object-bottom"
+          className="object-contain lg:object-cover object-center"
         />
 
         <div className="relative z-10 mt-auto text-center space-y-4 w-full max-w-md mx-auto">

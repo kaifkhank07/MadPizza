@@ -5,6 +5,8 @@ import Link from "next/link";
 
 import { StaggerReveal } from "../animations";
 import { info } from "@/data/info";
+import { assets } from "@/data/assets";
+import { useOrderModal } from "../util/OrderModalContext";
 
 /* Types */
 type NavLink = { label: string; href: string };
@@ -14,7 +16,7 @@ const mainPages: NavLink[] = [
   { label: "Home", href: "/#home" },
   { label: "About Us", href: "/#our-story" },
   { label: "Menu", href: "/#menu" },
-  { label: "Contact Us", href: "/#contact" },
+  // { label: "Contact Us", href: "/#contact" },
 ];
 
 const legalPages: NavLink[] = [
@@ -48,6 +50,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 /* FOOTER */
 export default function Footer() {
+  const { openModal } = useOrderModal();
 
   return (
     <>
@@ -68,7 +71,7 @@ export default function Footer() {
                   </h3>
                   <div className="relative w-20 h-28 sm:w-32 sm:h-40 lg:w-40 lg:h-48 aspect-[1/2]">
                     <Image
-                      src="/assets/Images/decore7.png"
+                      src={assets.images.decore7}
                       alt="Mad Pizza"
                       fill
                       quality={85}
@@ -95,23 +98,24 @@ export default function Footer() {
             <div className="px-4 py-8 lg:pl-8 lg:pb-40 border-b-3 sm:border-b-0 lg:border-l-3 border-white/20 border-dotted space-y-4 lg:space-y-8">
               <ColTitle>Have Questions?</ColTitle>
 
-              <div className="space-y-1">
-                <p className="text-white/70 font-kanit font-light text-base lg:text-lg whitespace-nowrap">
-                  Email Us:{" "}
-                  <Link
-                    href={`mailto: ${infodata.email}`}
-                    className="text-white hover:text-white/70 transition-colors"
-                  >
-                    {infodata.email}
-                  </Link>
-                </p>
+              <div className="space-y-2">
+                {infodata.branches.map((branch) => (
+                  <p key={branch.name} className="text-white/70 font-kanit font-light text-base lg:text-lg">
+                    {branch.name}:{" "}
+                    <Link
+                      href={`mailto:${branch.email}`}
+                      className="text-white hover:text-white/70 transition-colors"
+                    >
+                      {branch.email}
+                    </Link>
+                  </p>
+                ))}
 
-                <p className="text-white/70 font-kanit font-light text-base lg:text-lg whitespace-nowrap">
-                  or submit an:{" "}
+                <p className="text-white/70 font-kanit font-light text-base lg:text-lg pt-1">
+                  or submit a{" "}
                   <Link
                     href="/#contact"
-
-                    className="text-white hover:text-white/70 transition-colors"
+                    className="text-white hover:text-white/70 transition-colors underline"
                   >
                     contact form
                   </Link>
@@ -142,26 +146,30 @@ export default function Footer() {
                 {mainPages.map((l) => (
                   <FooterLink key={l.href} href={l.href} label={l.label} />
                 ))}
+
+                <button
+                  onClick={openModal}
+                  className="block text-white/70 font-kanit font-light text-base lg:text-lg hover:text-white transition-colors duration-200"
+                >
+                  Locations
+                </button>
               </div>
             </div>
 
             {/* Col 3 – Legal pages + contact info */}
             <div className="px-4 py-8 lg:pl-8 lg:pb-40 border-b-3 sm:border-b-0 lg:border-l-3 border-white/20 border-dotted space-y-4 lg:space-y-8">
               <ColTitle>Legal Pages</ColTitle>
-              <ul className="space-y-3 mb-3">
+              <ul className="space-y-3">
                 {legalPages.map((l) => (
                   <FooterLink key={l.href} href={l.href} label={l.label} />
                 ))}
-
-                <FooterLink href={`tel: ${infodata.mobile}`} label={`Phone: ${infodata.mobile}`} />
-                <FooterLink href={`mailto: ${infodata.email}`} label={`Email: ${infodata.email}`} />
               </ul>
             </div>
 
             {/* Col 4 – Schedule */}
             <div className="px-4 py-8 lg:pl-8 lg:pb-40 border-b-3 sm:border-b-0 lg:border-l-3 border-white/20 border-dotted space-y-4 lg:space-y-8">
-              <ColTitle>Schedule</ColTitle>
-              <ul className="space-y-2">
+              {/* <ColTitle>Schedule</ColTitle> */}
+              {/* <ul className="space-y-2">
                 {schedule.map(({ day, hours }) => (
                   <li key={day} className="flex items-baseline gap-4">
                     <p className="text-white/70 font-kanit font-light text-base lg:text-lg whitespace-nowrap">
@@ -171,7 +179,15 @@ export default function Footer() {
                     </p>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
+              <ColTitle>Contact Us</ColTitle>
+              {infodata.branches.map((branch) => (
+                <div key={branch.name} className="space-y-1">
+                  <p className="text-white font-geist font-bold text-sm uppercase tracking-wider">{branch.name}</p>
+                  <FooterLink href={`tel:${branch.mobile.replace(/\s+/g, "")}`} label={`Phone: ${branch.mobile}`} />
+                  <FooterLink href={`mailto:${branch.email}`} label={`Email: ${branch.email}`} />
+                </div>
+              ))}
             </div>
           </StaggerReveal>
         </div>

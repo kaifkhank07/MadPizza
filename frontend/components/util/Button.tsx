@@ -31,7 +31,7 @@ export default function Button({
     white: "bg-white hover:bg-white/90 text-primary",
   };
 
-  const baseClasses = `${variantClasses[variant]} text-lg sm:text-xl font-normal tracking-wider px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg border-b-3 border-accent hover:shadow-accent/40 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none ${className}`;
+  const baseClasses = `${variantClasses[variant]} text-lg sm:text-xl font-normal tracking-wider px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg border-b-3 border-accent cursor-pointer hover:shadow-accent/40 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none ${className}`;
 
   if (href) {
     return (

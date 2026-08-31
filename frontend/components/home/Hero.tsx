@@ -3,14 +3,18 @@
 import Button from "../util/Button";
 import { BlurInText, ViewReveal } from "../animations";
 import { useScrollNavigation } from "@/utils/scroll";
+import { useOrderModal } from "../util/OrderModalContext";
+import { assets } from "@/data/assets";
 
 export default function Hero() {
   const { handleScroll } = useScrollNavigation();
+  const { openModal } = useOrderModal();
+
   return (
     <section id="home" className="relative w-full min-h-screen flex items-center sm:items-end justify-start px-4 py-20 md:px-10 lg:px-16 overflow-hidden">
       {/* ── Background Image ── */}
       {/* <Image
-        src="/assets/Images/feature-bg.jpg"
+        src={assets.images.featureBg}
         alt="Wood-fired pizza oven with fresh pizzas"
         fill
         priority
@@ -19,7 +23,7 @@ export default function Hero() {
         sizes="100vw"
       /> */}
       <video
-        src="/assets/Videos/hero-bg.mp4"
+        src={assets.videos.heroBgVideo}
         autoPlay
         loop
         muted
@@ -40,7 +44,7 @@ export default function Hero() {
         <div className="max-w-4xl space-y-8">
           {/* Headline */}
           <BlurInText
-            text="Crafted to Perfection. Baked with Passion."
+            text="NEW YORK-STYLE PIZZA. MADE THE MAD WAY."
             as="h1"
             className="text-white font-geist font-bold uppercase tracking-wide text-4xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
             letterDelay={40}
@@ -48,14 +52,22 @@ export default function Hero() {
           />
 
           {/* CTA Button */}
-          <ViewReveal startDelay={1600} duration={1000}>
+          <ViewReveal startDelay={1600} duration={1000} className="flex justify-start items-center gap-4">
+            <Button
+              variant="white"
+              onClick={openModal}
+              className="inline-block"
+            >
+              Order Now
+            </Button>
+
             <Button
               variant="white"
               href="/#menu"
               onClick={(e) => handleScroll(e, "/#menu")}
               className="inline-block"
             >
-              Order Now
+              View Menu
             </Button>
           </ViewReveal>
         </div>

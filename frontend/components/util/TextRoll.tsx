@@ -3,6 +3,9 @@ import React from "react";
 interface TextRollProps {
   text: string;
   className?: string;
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
+  onClick? : () => void
 }
 
 export default function TextRoll({ text, className = "" }: TextRollProps) {

@@ -10,6 +10,7 @@ import gsap from "gsap";
 /* Swiper core CSS */
 import "swiper/css";
 import { testimonials, type TestimonialItem } from "@/data/testimonial";
+import { assets } from "@/data/assets";
 
 /* Sub-components */
 function ArrowBtn({
@@ -30,8 +31,8 @@ function ArrowBtn({
       <Image
         src={
           dir === "left"
-            ? "/assets/Images/arrow.svg"
-            : "/assets/Images/arrow.svg"
+            ? assets.images.arrow
+            : assets.images.arrow
         }
         alt={dir === "left" ? "Previous" : "Next"}
         fill
@@ -75,7 +76,7 @@ export default function Testimonial() {
 
       {/* Background pizza image */}
       <Image
-        src="/assets/Images/feature-bg.jpg"
+        src={assets.images.featureBg}
         alt="Pizza restaurant background"
         fill
         quality={75}
@@ -127,7 +128,7 @@ export default function Testimonial() {
                     <div className="relative bg-white rounded-md p-4 sm:p-5 md:p-6 lg:py-12 aspect-[4/5] torn-paper text-center flex flex-col items-center justify-between">
                       <div className="flex flex-col items-center gap-3">
                         <div className="flex items-center justify-center gap-2">
-                          <Image src="/assets/Images/decore6.png" alt="" width={60} height={60} />
+                          <Image src={assets.images.decore6} alt="" width={60} height={60} />
                         </div>
 
                         <p
