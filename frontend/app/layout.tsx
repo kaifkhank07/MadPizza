@@ -43,8 +43,8 @@ const kaushan = localFont({
 import { assets } from "@/data/assets";
 
 export const metadata: Metadata = {
-  title: "Mad Pizza",
-  description: "Delicious pizzas, crafted with passion.",
+  title: "MAD Pizza | New York-Style Pizza in Bolton & Waterloo",
+  description: "MAD Pizza serves New York-style pizza made with slow-fermented dough and premium ingredients. Order online from our Bolton or Waterloo, Ontario locations.",
   icons: {
     icon: assets.images.madPizzaLogo,
   },

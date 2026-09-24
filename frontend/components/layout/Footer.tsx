@@ -195,7 +195,8 @@ export default function Footer() {
         {/* ── Bottom copyright bar ── */}
         <div className="flex justify-center items-center gap-2 text-center text-white/70 font-kanit font-light text-base lg:text-lg tracking-wide">
           <p className="">
-            © 2026 Copyright - {infodata.name}
+            © 2026 Copyright - {infodata.name} All Rights Reserved
+
           </p>
           <span> | </span>
           <a href={infodata.developBy.url} target="_blank" className="hover:text-white transition-colors">

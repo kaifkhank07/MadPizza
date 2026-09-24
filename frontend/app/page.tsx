@@ -15,7 +15,7 @@ export default function Home() {
       <WhyDifferent />
       <SignaturePizzas />
       <AboutStats />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <PhotoGallery />
       <OrderCTA />
     </main>

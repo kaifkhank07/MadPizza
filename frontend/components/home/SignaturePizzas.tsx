@@ -161,7 +161,7 @@ export default function SignaturePizzas() {
         {/* RIGHT: Menu */}
         <div className="space-y-8">
           <BlurInText
-            text="Our Most Selling Pizzas"
+            text="OUR BEST-SELLING PIZZAS"
             as="h3"
             className="text-primary font-geist font-bold uppercase leading-tight tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-xl"
           />

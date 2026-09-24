@@ -58,16 +58,15 @@ export default function AboutStats() {
         {/* Left – dark panel */}
         <div className="order-2 lg:order-1 bg-primary p-4 sm:p-8 md:p-12 lg:p-16 space-y-6">
           <BlurInText
-            text="We Have Been Around 2020 to 2024!"
+            text="PIZZA DONE THE MAD WAY"
             as="h3"
             className="text-light font-geist font-semibold uppercase text-2xl sm:text-3xl md:text-4xl lg:text-6xl"
           />
 
           <ViewReveal startDelay={1000} duration={1000}>
             <p className="text-white font-normal text-base sm:text-lg">
-              Describe your pizza-making process, emphasizing the use of fresh
-              ingredients, traditional techniques or unique recipes that set you
-              apart.
+              MAD Pizza is our take on New York-style pizza — bold flavours, quality ingredients and dough made with time and care.
+              From classics like the Margherita and New Yorker to MAD favourites like Hot Honey Roni, we keep things simple: great dough, great ingredients and pizza we'd want to eat ourselves.
             </p>
           </ViewReveal>
 

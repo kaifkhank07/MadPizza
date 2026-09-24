@@ -35,7 +35,7 @@ export type InfoItem = {
 
 export const info: InfoItem[] = [
   {
-    name: "MadPizza",
+    name: "MAD Pizza.",
     branches: [
       {
         name: "Bolton",

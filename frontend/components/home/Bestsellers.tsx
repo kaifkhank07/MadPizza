@@ -95,7 +95,7 @@ export default function Bestsellers() {
           {/* Left – bold primary headline */}
           <div className="max-w-3xl">
             <BlurInText
-              text="Our All-Time Bestsellers. Craved By Thousands."
+              text="Our All-Time Bestsellers"
               as="h3"
               className="text-primary font-geist font-bold uppercase leading-tight tracking-wide text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
               letterDelay={40}

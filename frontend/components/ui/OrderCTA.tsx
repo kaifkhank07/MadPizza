@@ -108,8 +108,12 @@ export default function OrderCTA() {
 
         <div className="relative z-10 mt-auto text-center space-y-4 w-full max-w-md mx-auto">
           <h3 className="text-dark font-geist font-bold uppercase leading-tight tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-4xl">
-            Order Now Before All Sells Out.
+            CRAVING MAD PIZZA?
           </h3>
+
+          <p className="text-dark font-geist text-base sm:text-lg">
+            Your next pizza is only a few clicks away.
+          </p>
 
           <Button
             href="/#menu"

@@ -23,15 +23,15 @@ export const bestsellers: BestsellerItem[] = [
   {
     id: 2,
     img: assets.images.topPick2,
-    title: "Fresh Ingredient",
+    title: "SLOW-FERMENTED DOUGH",
     description:
-      "We specialize in user interface design, front-end development, design process.",
+      "Our dough is made in-house and cold-fermented for up to 48 hours, developing deeper flavour and the texture we want in every MAD Pizza.",
   },
   {
     id: 3,
     img: assets.images.topPick3,
-    title: "Fresh Ingredient",
+    title: "QUALITY INGREDIENTS",
     description:
-      "We specialize in user interface design, front-end development, design process.",
+      "From our tomatoes and cheese to our meats and fresh toppings, we carefully select ingredients that deliver big flavour in every bite.",
   },
 ];

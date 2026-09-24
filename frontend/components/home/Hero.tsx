@@ -44,7 +44,7 @@ export default function Hero() {
         <div className="max-w-4xl space-y-8">
           {/* Headline */}
           <BlurInText
-            text="NEW YORK-STYLE PIZZA. MADE THE MAD WAY."
+            text="Inspired by Italian tradition and New York pizza culture, we make our pizzas with carefully selected ingredients, house-made dough and bold flavours — all done the MAD way."
             as="h1"
             className="text-white font-geist font-bold uppercase tracking-wide text-4xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
             letterDelay={40}
