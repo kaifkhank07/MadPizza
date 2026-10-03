@@ -1,10 +1,16 @@
+import type { Metadata } from "next";
 import StaticPageLayout from "@/components/layout/StaticPageLayout";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | MAD Pizza",
+    description: "Learn about how MAD Pizza collects, uses, and protects your personal information and privacy.",
+};
 
 export default function PrivacyPolicy() {
     return (
         <StaticPageLayout
             title="Privacy Policy"
-            description="Your privacy matters to us."
+            description="Your privacy matters to us. Learn how we handle and protect your personal information."
         >
             <div className="space-y-10">
                 <div>
@@ -13,62 +19,94 @@ export default function PrivacyPolicy() {
                     </h2>
 
                     <p className="mt-4 text-base font-light leading-relaxed text-[#E85A2A] sm:text-lg">
-                        This Privacy Policy explains how Mad Pizza may collect, use, and
-                        protect information when you visit or interact with our website.
+                        At MAD Pizza, we are committed to protecting your privacy and ensuring a transparent online ordering experience. This Privacy Policy outlines how we collect, use, disclose, and safeguard your personal information when you visit our website or order from our locations.
                     </p>
                 </div>
 
                 <div className="space-y-3">
                     <h3 className="text-xl font-medium uppercase text-[#C92E05]">
-                        Information We Collect
+                        1. Information We Collect
                     </h3>
-
                     <p className="text-base font-light leading-relaxed text-gray-600 sm:text-lg">
-                        We may collect information that you voluntarily provide through
-                        forms, enquiries, reservations, or other interactions with our
-                        website.
+                        We collect personal information that you voluntarily provide to us when placing an order, subscribing to updates, submitting feedback, or contacting us. This information may include your name, email address, phone number, delivery address, order details, and payment preferences. We also automatically collect technical usage data, such as IP addresses, browser types, and cookie data to improve website functionality.
                     </p>
                 </div>
 
                 <div className="space-y-3">
                     <h3 className="text-xl font-medium uppercase text-[#C92E05]">
-                        How We Use Your Information
+                        2. How We Use Your Information
                     </h3>
-
                     <p className="text-base font-light leading-relaxed text-gray-600 sm:text-lg">
-                        Information may be used to respond to enquiries, provide requested
-                        services, improve our website, and communicate important updates.
+                        MAD Pizza uses collected information to:
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2 text-base font-light text-gray-600 sm:text-lg">
+                        <li>Fulfill and manage your online orders, deliveries, and pickups.</li>
+                        <li>Communicate order status updates, receipts, and customer service responses.</li>
+                        <li>Improve our menu offerings, website features, and overall dining experience.</li>
+                        <li>Send promotional offers and updates if you have opted in to receive marketing communications.</li>
+                    </ul>
+                </div>
+
+                <div className="space-y-3">
+                    <h3 className="text-xl font-medium uppercase text-[#C92E05]">
+                        3. Sharing & Disclosure of Information
+                    </h3>
+                    <p className="text-base font-light leading-relaxed text-gray-600 sm:text-lg">
+                        We do not sell, rent, or trade your personal information to third parties for marketing purposes. We may share necessary details with trusted third-party service providers (such as payment processing partners, delivery couriers, and hosting providers) strictly to facilitate our operations and fulfill your requests.
                     </p>
                 </div>
 
                 <div className="space-y-3">
                     <h3 className="text-xl font-medium uppercase text-[#C92E05]">
-                        Data Protection
+                        4. Data Protection & Security
                     </h3>
-
                     <p className="text-base font-light leading-relaxed text-gray-600 sm:text-lg">
-                        We take reasonable steps to protect the information provided to us
-                        and to prevent unauthorized access, misuse, or disclosure.
+                        We implement administrative, technical, and physical security measures to safeguard your personal data against unauthorized access, loss, alteration, or disclosure. Payment information submitted online is encrypted using industry-standard protocols.
                     </p>
                 </div>
 
                 <div className="space-y-3">
                     <h3 className="text-xl font-medium uppercase text-[#C92E05]">
-                        Updates
+                        5. Cookies & Tracking Technologies
                     </h3>
-
                     <p className="text-base font-light leading-relaxed text-gray-600 sm:text-lg">
-                        This privacy policy is temporary and may be updated as our website
-                        and services develop.
+                        Our website utilizes cookies and session analytics to enhance user experience, remember your preferences, and analyze site traffic. You can adjust your browser settings to decline cookies, though some features of the website may not function optimally as a result.
+                    </p>
+                </div>
+
+                <div className="space-y-3">
+                    <h3 className="text-xl font-medium uppercase text-[#C92E05]">
+                        6. Your Rights & Choices
+                    </h3>
+                    <p className="text-base font-light leading-relaxed text-gray-600 sm:text-lg">
+                        You have the right to access, update, or request deletion of your personal information held by MAD Pizza. You can also unsubscribe from promotional emails at any time by following the unsubscribe link included in our communications.
+                    </p>
+                </div>
+
+                <div className="space-y-3">
+                    <h3 className="text-xl font-medium uppercase text-[#C92E05]">
+                        7. Policy Updates
+                    </h3>
+                    <p className="text-base font-light leading-relaxed text-gray-600 sm:text-lg">
+                        MAD Pizza reserves the right to update this Privacy Policy periodically to reflect changes in our operational practices or legal requirements. Any updates will be posted on this page with an updated revision date.
+                    </p>
+                </div>
+
+                <div className="space-y-3">
+                    <h3 className="text-xl font-medium uppercase text-[#C92E05]">
+                        8. Contact Us
+                    </h3>
+                    <p className="text-base font-light leading-relaxed text-gray-600 sm:text-lg">
+                        If you have questions, concerns, or requests regarding this Privacy Policy, please reach out to us at our Bolton or Waterloo store locations or via our contact page.
                     </p>
                 </div>
 
                 <div className="border-t border-[#E85A2A]/20 pt-6">
                     <p className="text-sm font-light text-gray-500">
-                        Temporary Privacy Policy — Final legal content will be added soon.
+                        Last updated: October 2026. MAD Pizza — All Rights Reserved.
                     </p>
                 </div>
             </div>
         </StaticPageLayout>
     );
-}
+}

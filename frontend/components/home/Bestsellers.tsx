@@ -106,9 +106,9 @@ export default function Bestsellers() {
           {/* Right – description + CTA */}
           <div className="w-full lg:max-w-lg space-y-10">
             <FadeInLines
-              text="Inspired By Authentic Italian Traditions And Infused With Local Flavors, We Pride Ourselves On Using Only The Freshest Ingredients To Create A Memorable"
+              text="Inspired by authentic Italian traditions and infused with local flavors, we pride ourselves on using only the freshest ingredients to create an unforgettable dining experience."
               as="p"
-              className="text-gray-500 text-base sm:text-lg md:text-xl font-normal leading-relaxed sm:mt-8"
+              className="text-gray-500 text-base sm:text-lg md:text-xl font-normal leading-relaxed"
             />
 
             <ViewReveal startDelay={1200} duration={1000}>

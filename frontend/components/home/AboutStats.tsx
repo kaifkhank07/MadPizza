@@ -71,14 +71,18 @@ export default function AboutStats() {
           </ViewReveal>
 
           <ViewReveal startDelay={1000} duration={1000}>
-            <Button
+            {/* <Button
               href="/#our-story"
               onClick={(e) => handleScroll(e, "/#our-story")}
               variant="white"
               className="inline-block"
             >
               More about us
-            </Button>
+            </Button> */}
+            <h3 className="text-light font-geist font-semibold uppercase text-2xl sm:text-3xl md:text-4xl lg:text-6xl">
+              TWO LOCATIONS. ONE MAD OBSESSION.
+            </h3>
+
           </ViewReveal>
 
           {/* Address & Hours row */}

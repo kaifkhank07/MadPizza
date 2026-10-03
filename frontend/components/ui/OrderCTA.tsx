@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "../util/Button";
 import { useScrollNavigation } from "@/utils/scroll";
 import { assets } from "@/data/assets";
+import { info, type Branch } from "@/data/info";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -18,6 +19,8 @@ export default function OrderCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const infodata = info[0];
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -115,13 +118,27 @@ export default function OrderCTA() {
             Your next pizza is only a few clicks away.
           </p>
 
-          <Button
+          <div className="flex justify-center items-center gap-4">
+            {/* <Button
             href="/#menu"
             onClick={(e) => handleScroll(e, "/#menu")}
             className="inline-block"
           >
             Explore Menu
-          </Button>
+          </Button> */}
+            {
+              infodata.branches.map((branch, index) => (
+                <Button
+                  key={index}
+                  href={branch.orderUrl}
+                  className="inline-block whitespace-nowrap"
+                  target="_blank"
+                >
+                  Order {branch.name}
+                </Button>
+              ))
+            }
+          </div>
         </div>
       </div>
     </section>
