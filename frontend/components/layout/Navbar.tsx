@@ -13,7 +13,7 @@ import { useOrderModal } from "../util/OrderModalContext";
 const NAV_LINKS = [
   { label: "Home", href: "/#home" },
   { label: "About Us", href: "/#our-story" },
-  { label: "Menu", href: "/#menu" },
+  { label: "Menu", href: "/menu" },
 ];
 
 export default function Navbar() {

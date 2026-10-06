@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import { OrderModalProvider } from "@/components/util/OrderModalContext";
+import ConditionalLayout from "@/components/layout/ConditionalLayout";
 import "./globals.css";
 
 // ── Kanit (default body font) ────────────────────────────────────────────────
@@ -57,12 +55,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${kanit.variable} ${geist.variable} ${kaushan.variable} h-full antialiased`}
     >
       <body className="font-kanit min-h-full flex flex-col">
-        <OrderModalProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </OrderModalProvider>
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );
 }
+

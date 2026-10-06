@@ -15,7 +15,7 @@ type NavLink = { label: string; href: string };
 const mainPages: NavLink[] = [
   { label: "Home", href: "/#home" },
   { label: "About Us", href: "/#our-story" },
-  { label: "Menu", href: "/#menu" },
+  { label: "Menu", href: "/menu" },
   // { label: "Contact Us", href: "/#contact" },
 ];
 
