@@ -63,8 +63,7 @@ export default function Hero() {
 
             <Button
               variant="white"
-              href="/#menu"
-              onClick={(e) => handleScroll(e, "/#menu")}
+              href="/menu"
               className="inline-block"
             >
               View Menu

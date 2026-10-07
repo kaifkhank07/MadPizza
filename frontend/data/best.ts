@@ -18,7 +18,7 @@ export const bestsellers: BestsellerItem[] = [
     id: 1,
     img: assets.images.topPick1,
     title: "Hot",
-    btn: { text: "Order Now", href: "/#menu" },
+    btn: { text: "Order Now", href: "/menu" },
   },
   {
     id: 2,

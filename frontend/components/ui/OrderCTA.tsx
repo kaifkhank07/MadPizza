@@ -119,13 +119,6 @@ export default function OrderCTA() {
           </p>
 
           <div className="flex justify-center items-center gap-4">
-            {/* <Button
-            href="/#menu"
-            onClick={(e) => handleScroll(e, "/#menu")}
-            className="inline-block"
-          >
-            Explore Menu
-          </Button> */}
             {
               infodata.branches.map((branch, index) => (
                 <Button

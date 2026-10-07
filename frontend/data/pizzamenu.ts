@@ -2,6 +2,7 @@ import { assets } from "./assets";
 
 export type PizzaMenuCategory =
   | "most popular"
+  | "features"
   | "combos"
   | "signature pizzas"
   | "custom pizzas"
@@ -23,6 +24,7 @@ export type PizzaMenuItemType = {
 
 export const pizzaMenuCategories: PizzaMenuCategory[] = [
   "most popular",
+  "features",
   "combos",
   "signature pizzas",
   "custom pizzas",
@@ -46,7 +48,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass-Fed Mozzarella, Cup & Char Pepperoni, Sausage, Creamy Ricotta, Fresh Basil, Grated Pecorino",
     price: "$20.00",
     category: "most popular",
-    image: assets.images.menuItem.item1,
+    image: assets.images.menuItem.mostPopular1,
   },
 
   {
@@ -56,7 +58,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass-Fed Mozzarella, Cup & Char Pepperoni, Mike's Hot Honey Drizzle, Fresh Basil, Grated Pecorino",
     price: "$20.00",
     category: "most popular",
-    image: assets.images.menuItem.item2,
+    image: assets.images.menuItem.mostPopular2,
   },
 
   {
@@ -66,7 +68,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Fior Di Latte, Fresh Basil, Grated Pecorino, Extra Virgin Olive Oil",
     price: "$20.00",
     category: "most popular",
-    image: assets.images.menuItem.item3,
+    image: assets.images.menuItem.mostPopular3,
   },
 
   {
@@ -75,42 +77,36 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "Two Signature Pizzas",
     price: "$38.00",
     category: "most popular",
-    image: assets.images.menuItem.item4,
+    image: assets.images.menuItem.mostPopular4,
   },
+
+  // =====================================================
+  // FEATURES
+  // =====================================================
 
   {
     id: 5,
-    name: "Vodka Vice Pizza",
+    name: "The Ultimate Pizza Deal",
     description:
-      "Creamy Vodka Sauce, Fior Di Latte, Cup & Char Pepperoni, Fresh Basil, Grated Pecorino",
-    price: "$22.00",
-    category: "most popular",
-    image: assets.images.menuItem.item5,
-  },
-
-  {
-    id: 6,
-    name: "Garlic Knots & Marinara",
-    description:
-      "Freshly baked dough knots tossed in garlic butter, fresh parsley, and grated parmesan served with warm marinara sauce",
-    price: "$9.50",
-    category: "most popular",
-    image: assets.images.menuItem.item6,
-  },
-
-  {
-    id: 7,
-    name: "Caesar Salad",
-    description:
-      "Romaine Lettuce, Shaved Pecorino Cheese, Oven Baked Croutons, Traditional Caesar Dressing",
-    price: "$8.49",
-    category: "most popular",
-    image: assets.images.menuItem.item7,
+      "Choose Any Two Medium Signature Pizzas, Two Dips and Two Drinks",
+    price: "$39.99",
+    category: "features",
+    image: assets.images.menuItem.features1,
   },
 
   // =====================================================
   // COMBOS
   // =====================================================
+
+  {
+    id: 7,
+    name: "The Ultimate Pizza Deal",
+    description:
+      "Choose Any Two Medium Signature Pizzas, Two Dips and Two Drinks",
+    price: "$39.99",
+    category: "combos",
+    image: assets.images.menuItem.combo1,
+  },
 
   {
     id: 8,
@@ -119,7 +115,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Create your own custom specially priced ONE topping pizza",
     price: "$12.49",
     category: "combos",
-    image: assets.images.menuItem.item8,
+    image: assets.images.menuItem.combo2,
   },
 
   {
@@ -128,7 +124,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "Signature pizza + 2 drinks + 2 dips",
     price: "$28.00",
     category: "combos",
-    image: assets.images.menuItem.item9,
+    image: assets.images.menuItem.combo3,
   },
 
   {
@@ -137,7 +133,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "Two Signature Pizzas",
     price: "$38.00",
     category: "combos",
-    image: assets.images.menuItem.item10,
+    image: assets.images.menuItem.combo4,
   },
 
   // =====================================================
@@ -151,7 +147,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Creamy Vodka Sauce, Fior Di Latte, Cup & Char Pepperoni, Fresh Basil, Grated Pecorino",
     price: "$22.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item11,
+    image: assets.images.menuItem.singnature1,
   },
 
   {
@@ -161,7 +157,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass - Fed Mozzarella, Cup & Char Pepperoni, Sausage, Creamy Ricotta, Fresh Basil, Grated Pecorino",
     price: "$20.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item12,
+    image: assets.images.menuItem.singnature2,
   },
 
   {
@@ -171,7 +167,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass - Fed Mozzarella, Cup & Char Pepperoni, Mike's Hot Honey Drizzle, Fresh Basil, Grated Pecorino",
     price: "$20.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item13,
+    image: assets.images.menuItem.singnature3,
   },
 
   {
@@ -181,7 +177,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Fior Di Latte, Fresh Basil, Grated Pecorino, Extra Virgin Olive Oil",
     price: "$20.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item14,
+    image: assets.images.menuItem.singnature4,
   },
 
   {
@@ -191,7 +187,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato sauce, Grass - Fed Mozzarella, Freshly Sliced Hot Soppressata, Red Onions, Fresh Jalapeños, Mike’s Hot Honey Drizzle",
     price: "$22.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item15,
+    image: assets.images.menuItem.singnature5,
   },
 
   {
@@ -201,7 +197,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass-Fed Mozzarella, Green Peppers, Red Onions, Portobello Mushrooms",
     price: "$20.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item16,
+    image: assets.images.menuItem.singnature6,
   },
 
   {
@@ -211,7 +207,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass - Fed Mozzarella, Cup & Char Pepperoni, Sausage, Bacon Strips",
     price: "$22.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item17,
+    image: assets.images.menuItem.signature7,
   },
 
   {
@@ -221,7 +217,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass-Fed Mozzarella, Chipotle Chicken, Red Onions, Pineapple, Fresh Jalapenos",
     price: "$22.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item18,
+    image: assets.images.menuItem.signature8,
   },
 
   {
@@ -231,7 +227,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass-Fed Mozzarella, Marinated Cherry Tomatoes, Aged Parmigiano Reggiano, Fresh Basil, EVOO, Balsamic Glaze",
     price: "$20.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item19,
+    image: assets.images.menuItem.signature9,
   },
 
   {
@@ -241,7 +237,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Extra Virgin Olive Oil Base, Grass-Fed Mozzarella, Portobello Mushrooms, Ricotta, Fresh Basil, Grated Pecorino, Truffle Oil",
     price: "$20.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item20,
+    image: assets.images.menuItem.signature10,
   },
 
   {
@@ -251,7 +247,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Garlic Sauce, Grass-Fed Mozzarella, Sliced Fresh Prosciutto, Arugula, Grated Pecorino, Balsamic",
     price: "$20.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item21,
+    image: assets.images.menuItem.signature11,
   },
 
   {
@@ -261,7 +257,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Fig Jam, Grass-Fed Mozzarella, Bacon Strips, Ricotta, Fresh Basil, Grated Pecorino",
     price: "$20.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item22,
+    image: assets.images.menuItem.signature12,
   },
 
   {
@@ -271,7 +267,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass-Fed Mozzarella, Cup & Char Pepperoni",
     price: "$17.49",
     category: "signature pizzas",
-    image: assets.images.menuItem.item23,
+    image: assets.images.menuItem.signature13,
   },
 
   {
@@ -281,7 +277,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Smokey Barbecue Sauce, Grass-Fed Mozzarella, Chicken, Red Onions, Fresh Jalapenos",
     price: "$22.00",
     category: "signature pizzas",
-    image: assets.images.menuItem.item24,
+    image: assets.images.menuItem.signature14,
   },
 
   {
@@ -291,7 +287,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Vine-Ripened Tomato Sauce, Grass-Fed Mozzarella",
     price: "$17.49",
     category: "signature pizzas",
-    image: assets.images.menuItem.item25,
+    image: assets.images.menuItem.signature15,
   },
 
   // =====================================================
@@ -304,7 +300,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "Build Your Own Pizza",
     price: "$20.00",
     category: "custom pizzas",
-    image: assets.images.menuItem.item26,
+    image: assets.images.menuItem.custom1,
   },
 
   // =====================================================
@@ -317,7 +313,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "Calzone",
     price: "$12.49",
     category: "calzone",
-    image: assets.images.menuItem.item27,
+    image: assets.images.menuItem.calzone1,
   },
 
   // =====================================================
@@ -331,7 +327,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Romaine Lettuce, Shaved Pecorino Cheese, Oven Baked Croutons, Traditional Caesar Dressing",
     price: "$8.49",
     category: "salads",
-    image: assets.images.menuItem.item28,
+    image: assets.images.menuItem.salad1,
   },
 
   {
@@ -341,7 +337,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Fresh Arugula, Sweet Cherry Tomatoes, Crunchy Walnuts and Parmigiano Reggiano - Finished with Balsamic bliss & Lemon Wedge",
     price: "$10.49",
     category: "salads",
-    image: assets.images.menuItem.item29,
+    image: assets.images.menuItem.salad2,
   },
 
   // =====================================================
@@ -354,7 +350,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$15.00",
     category: "sides",
-    image: assets.images.menuItem.item30,
+    image: assets.images.menuItem.side1,
   },
 
   {
@@ -363,7 +359,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$28.00",
     category: "sides",
-    image: assets.images.menuItem.item31,
+    image: assets.images.menuItem.side2,
   },
 
   {
@@ -372,7 +368,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$15.00",
     category: "sides",
-    image: assets.images.menuItem.item32,
+    image: assets.images.menuItem.side3,
   },
 
   {
@@ -381,7 +377,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$28.00",
     category: "sides",
-    image: assets.images.menuItem.item33,
+    image: assets.images.menuItem.side4,
   },
 
   {
@@ -391,7 +387,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Garlic spread, melted cheese, Pecorino and parsley, served with marinara.",
     price: "$12.49",
     category: "sides",
-    image: assets.images.menuItem.item34,
+    image: assets.images.menuItem.side5,
   },
 
   {
@@ -400,7 +396,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$9.00",
     category: "sides",
-    // image: assets.images.menuItem.item35,
+    image: assets.images.menuItem.side6,
   },
 
   // =====================================================
@@ -413,7 +409,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.75",
     category: "dipping sauces",
-    // image: assets.images.menuItem.item36,
+    image: assets.images.menuItem.dippingSauce1,
   },
 
   {
@@ -422,7 +418,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$3.00",
     category: "dipping sauces",
-    // image: assets.images.menuItem.item37,
+    image: assets.images.menuItem.dippingSauce2,
   },
 
   {
@@ -431,7 +427,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.75",
     category: "dipping sauces",
-    // image: assets.images.menuItem.item38,
+    // image: assets.images.menuItem.dippingSauce3,
   },
 
   {
@@ -440,7 +436,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.75",
     category: "dipping sauces",
-    // image: assets.images.menuItem.item39,
+    // image: assets.images.menuItem.dippingSauce4,
   },
 
   {
@@ -449,7 +445,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.75",
     category: "dipping sauces",
-    image: assets.images.menuItem.item40,
+    // image: assets.images.menuItem.dippingSauce5,
   },
 
   {
@@ -458,7 +454,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.75",
     category: "dipping sauces",
-    image: assets.images.menuItem.item41,
+    // image: assets.images.menuItem.dippingSauce6,
   },
 
   {
@@ -467,7 +463,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.75",
     category: "dipping sauces",
-    image: assets.images.menuItem.item42,
+    // image: assets.images.menuItem.dippingSauce7,
   },
 
   {
@@ -477,7 +473,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "A sweet-heat combo of honey infused with chili peppers that adds the perfect kick to all your favorite foods. Drizzle it on pizza, chicken, BBQ, and cheese boards, or use it in cocktails, dressings, and marinades.",
     price: "$19.90",
     category: "dipping sauces",
-    image: assets.images.menuItem.item43,
+    image: assets.images.menuItem.dippingSauce8,
   },
 
   {
@@ -486,7 +482,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$21.90",
     category: "dipping sauces",
-    image: assets.images.menuItem.item44,
+    image: assets.images.menuItem.dippingSauce9,
   },
 
   // =====================================================
@@ -500,7 +496,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Crunchy biscuit base with mascarpone chantilly cream, decorated with biscuits and cococa",
     price: "$7.00",
     category: "desserts",
-    // image: assets.images.menuItem.item45,
+    image: assets.images.menuItem.dessert1,
   },
 
   {
@@ -510,7 +506,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
       "Pistachio and Ricotta creams separated by sponge cake, decorated with crushed pistachios and dusted with powdered sugar",
     price: "$8.00",
     category: "desserts",
-    // image: assets.images.menuItem.item46,
+    image: assets.images.menuItem.dessert2,
   },
 
   // =====================================================
@@ -523,7 +519,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$3.49",
     category: "drinks",
-    // image: assets.images.menuItem.item47,
+    image: assets.images.menuItem.drink1,
   },
 
   {
@@ -532,7 +528,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.99",
     category: "drinks",
-    // image: assets.images.menuItem.item48,
+    // image: assets.images.menuItem.drink2,
   },
 
   {
@@ -541,7 +537,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.99",
     category: "drinks",
-    // image: assets.images.menuItem.item49,
+    // image: assets.images.menuItem.drink3,
   },
 
   {
@@ -550,7 +546,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.99",
     category: "drinks",
-    // image: assets.images.menuItem.item50,
+    // image: assets.images.menuItem.drink4,
   },
 
   {
@@ -559,7 +555,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.99",
     category: "drinks",
-    // image: assets.images.menuItem.item51,
+    // image: assets.images.menuItem.drink5,
   },
 
   {
@@ -568,7 +564,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.99",
     category: "drinks",
-    image: assets.images.menuItem.item52,
+    // image: assets.images.menuItem.drink6,
   },
 
   {
@@ -577,7 +573,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$1.99",
     category: "drinks",
-    image: assets.images.menuItem.item53,
+    // image: assets.images.menuItem.drink7,
   },
 
   {
@@ -586,7 +582,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$2.49",
     category: "drinks",
-    // image: assets.images.menuItem.item54,
+    // image: assets.images.menuItem.drink8,
   },
 
   {
@@ -595,7 +591,7 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$3.49",
     category: "drinks",
-    // image: assets.images.menuItem.item55,
+    image: assets.images.menuItem.drink9,
   },
 
   {
@@ -604,6 +600,6 @@ export const pizzaMenuItems: PizzaMenuItemType[] = [
     description: "",
     price: "$3.49",
     category: "drinks",
-    // image: assets.images.menuItem.item56,
+    image: assets.images.menuItem.drink10,
   },
 ];
